@@ -1,7 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+// import '../styles/global.css'
 
 interface Props {
 	title: string;
@@ -9,9 +9,24 @@ interface Props {
 	image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props
+
+const jsonFrameData = JSON.stringify({
+	version: 'next',
+	imageUrl: 'https://rose.castr.guru/icon.svg',
+	button: {
+		title: 'Read',
+		action: {
+			type: 'launch_frame',
+			name: `Rosé Frame Kit`,
+			url: 'https://rose.castr.guru',
+			splashImageUrl: 'https://rose.castr.guru/splash.gif',
+			splashBackgroundColor: '#33cc33',
+		}
+	}
+})
 ---
 
 <!-- Global Metadata -->
@@ -32,6 +47,9 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
+<!-- Farcaster -->
+<meta property="fc:frame" content={jsonFrameData} />
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
@@ -39,7 +57,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
-<!-- Twitter -->
+<!-- Twitter/X -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
@@ -47,4 +65,4 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <!-- Castr GÜRŲ Analytics -->
-<script async src="https://telemetry.castr.guru"></script>
+<script async src="https://telemetry.castr.guru/script.js"></script>

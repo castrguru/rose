@@ -1,16 +1,22 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro'
+import { SITE_TITLE } from '../consts'
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h1>
+			<a href="/" class="text-xl font-bold text-fuchsia-700 tracking-wide">
+				{SITE_TITLE}
+			</a>
+		</h1>
+
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
+			<!-- <HeaderLink href="/">Home</HeaderLink> -->
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
+
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
 				<span class="sr-only">Follow Astro on Mastodon</span>
@@ -42,21 +48,13 @@ import { SITE_TITLE } from '../consts';
 		</div>
 	</nav>
 </header>
+
 <style>
 	header {
 		margin: 0;
 		padding: 0 1em;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
 	}
 	nav {
 		display: flex;
@@ -65,7 +63,7 @@ import { SITE_TITLE } from '../consts';
 	}
 	nav a {
 		padding: 1em 0.5em;
-		color: var(--black);
+		/* color: var(--black); */
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
