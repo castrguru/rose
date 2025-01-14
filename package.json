@@ -1,7 +1,10 @@
 {
-  "name": "rose",
+  "name": "castrguru-rose",
+  "version": "25.1.12",
+  "license": "MIT",
+  "description": "A complete low-no code solution for frame building on Farcaster.",
+  "author": "Castr GÜRŲ",
   "type": "module",
-  "version": "25.1.10",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
